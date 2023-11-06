@@ -1,6 +1,6 @@
 # Temperature Converter
 
-![Temperature Converter Demo](demo.gif)
+![Temperature Converter](demo.gif)
 
 ## Overview
 
@@ -21,5 +21,5 @@ Temperature Converter is a web-based tool that allows users to convert temperatu
 
 ## Live Demo
 
-You can try out the Temperature Converter here: [Temperature.html](#)
+You can try out the Temperature Converter here: [Temperature](Temperature.html)
 
