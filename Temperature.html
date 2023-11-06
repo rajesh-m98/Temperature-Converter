@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            position: absolute;
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            background-color: #0d47a1; /* Background color */
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 2.5px;
+            rotate: 15deg;
+            height: 7px; /* Raindrop length */
+            background: rgb(255, 255, 255); /* Raindrop color */
+            animation: fall linear infinite 1s; /* Raindrop animation */
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh); /* Falling animation */
+            }
+        }
+
+        #outline {
+            width: 420px;
+            height: 420px;
+            margin-left: 337px;
+            margin-top: 37px;
+            rotate: 10deg;
+            border-radius: 20px;
+            display: flex;
+            position: fixed;
+            background-color: rgb(255, 132, 0);
+            box-shadow:  3px  3px 10px black,
+                        -3px -3px 10px black,
+                        -3px  3px 10px black,
+                         3px -3px 10px black;
+        }
+
+        #converter {
+            border: none;
+            position: absolute;
+            background-color: rgb(255, 226, 152);
+            border-radius: 20px;
+            padding: 15px;
+            margin-left: 320px;
+            margin-top: 30px;
+            width: 420px;
+            rotate: 355deg;
+            height: 400px;
+            transition: 0.7s;
+            box-shadow:  5px  5px 10px rgb(255, 0, 174);
+        }
+
+        #converter:hover {
+            rotate: 360deg;
+        }
+
+        #converter h1 {
+            font-size: 32px;
+            font-weight: bold;
+            /* text-shadow: 4px 0px 1px rgb(94, 94, 94); */
+        }
+
+        label {
+            font-size: 25px;
+            color: rgb(0, 0, 0);
+        }
+
+        input {
+            border: none;
+            outline: none;
+            width: 200px;
+            font-size: 20px;
+            /* border-radius: 10px;
+            border-left: 2px solid rgb(0, 0, 0);
+            border-right: 2px solid rgb(0, 0, 0); */
+            border-bottom: 2px solid rgb(0, 0, 0);
+            background: transparent;
+            text-align: center;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: rgb(1, 183, 255);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.6s;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        button:hover {
+            box-shadow:  3px  3px 3px rgb(95, 95, 95),
+                        -3px -3px 3px rgb(95, 95, 95),
+                        -3px  3px 3px rgb(95, 95, 95),
+                         3px -3px 3px rgb(95, 95, 95);
+        }
+
+        #unit {
+            width: 150px;
+            padding: 6px;
+            border-radius: 8px;
+            font-size: 18px;
+            border: 2px solid black;
+            background-color: rgb(167, 251, 255);
+            cursor: pointer;
+            /* background-color: rgb(255, 69, 69); */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Create raindrops -->
+        <div class="raindrop" style="left: 5%;   animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 10%;  animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 15%;  animation-duration: 2s;"></div>
+        <div class="raindrop" style="left: 20%;  animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 25%;  animation-duration: 1.8s;"></div>
+        <div class="raindrop" style="left: 30%;  animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 35%;  animation-duration: 2.2s;"></div>
+        <div class="raindrop" style="left: 40%;  animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 45%;  animation-duration: 1.7s;"></div>
+        <div class="raindrop" style="left: 50%;  animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 55%;  animation-duration: 1.9s;"></div>
+        <div class="raindrop" style="left: 60%;  animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 65%;  animation-duration: 2.1s;"></div>
+        <div class="raindrop" style="left: 70%;  animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 75%;  animation-duration: 1.6s;"></div>
+        <div class="raindrop" style="left: 80%;  animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 85%;  animation-duration: 1.8s;"></div>
+        <div class="raindrop" style="left: 90%;  animation-duration: 1.5s;"></div>
+        <div class="raindrop" style="left: 95%;  animation-duration: 2s;"></div>
+    </div>
+    <div id="outline"></div>
+    <div id="converter">
+        <table cellspacing="20px">
+            <tr>
+                <td colspan="2">
+                    <h1>Temperature Converter</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Degree</label>
+                </td>
+                <td>
+                    <label for="">Convert To</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" id="temperature" placeholder="Enter temperature">
+                </td>
+                <td>
+                    <select id="unit">
+                        <option value="celsius">Celsius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                        <option value="kelvin">Kelvin</option>
+                    </select>
+                </td>
+            </tr>
+            <tr><td><br></td></tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="convertTemperature()">Convert</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="result"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            const temperatureInput = document.getElementById("temperature");
+            const unitSelect = document.getElementById("unit");
+            const resultDisplay = document.getElementById("result");
+            const unit = unitSelect.value;
+            const temperature = parseFloat(temperatureInput.value);
+
+            resultDisplay.style.fontSize = "20px";
+            resultDisplay.style.borderRadius = "20px";
+            resultDisplay.style.border = "none";
+            resultDisplay.style.backgroundColor = "rgb(255, 69, 69)";
+            resultDisplay.style.color = "white";
+            resultDisplay.style.width = "340px";
+            resultDisplay.style.height = "40px";
+            resultDisplay.style.textAlign = "center";
+            resultDisplay.style.padding = "10px";
+
+            if (isNaN(temperature)) {
+                resultDisplay.innerText = "Please enter a valid number.";
+                return;
+            }
+
+            let convertedTemperature;
+            let unitLabel;
+
+            if (unit === "celsius") {
+                convertedTemperature = (temperature - 32) * (5/9);
+                unitLabel = "Celsius";
+            } else if (unit === "fahrenheit") {
+                convertedTemperature = (temperature * 9/5) + 32;
+                unitLabel = "Fahrenheit";
+            } else {
+                convertedTemperature = temperature - 273.15;
+                unitLabel = "Kelvin";
+            }
+
+            resultDisplay.innerText = `Converted Temperature: ${convertedTemperature.toFixed(2)} ${unitLabel}`;
+
+            // Clear the input field after 10 seconds
+            setTimeout(() => {
+                temperatureInput.value = '';
+                resultDisplay.innerText ='';
+                resultDisplay.style='';
+            }, 7000);
+        }
+    </script>
+</body>
+</html>
