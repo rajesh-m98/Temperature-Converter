@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temperature Converter</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-        }
-
-        body {
             margin: 0;
             overflow: hidden;
         }
@@ -39,7 +40,8 @@
         #outline {
             width: 420px;
             height: 420px;
-            margin-left: 337px;
+            margin-left: auto;
+            margin-right: auto;
             margin-top: 37px;
             rotate: 10deg;
             border-radius: 20px;
@@ -58,7 +60,8 @@
             background-color: rgb(255, 226, 152);
             border-radius: 20px;
             padding: 15px;
-            margin-left: 320px;
+            margin-left: auto;
+            margin-right: auto;
             margin-top: 30px;
             width: 420px;
             rotate: 355deg;
@@ -74,7 +77,6 @@
         #converter h1 {
             font-size: 32px;
             font-weight: bold;
-            /* text-shadow: 4px 0px 1px rgb(94, 94, 94); */
         }
 
         label {
@@ -87,9 +89,6 @@
             outline: none;
             width: 200px;
             font-size: 20px;
-            /* border-radius: 10px;
-            border-left: 2px solid rgb(0, 0, 0);
-            border-right: 2px solid rgb(0, 0, 0); */
             border-bottom: 2px solid rgb(0, 0, 0);
             background: transparent;
             text-align: center;
@@ -123,9 +122,7 @@
             border: 2px solid black;
             background-color: rgb(167, 251, 255);
             cursor: pointer;
-            /* background-color: rgb(255, 69, 69); */
         }
-
     </style>
 </head>
 <body>
@@ -133,68 +130,67 @@
         <!-- Create raindrops -->
         <div class="raindrop" style="left: 5%;   animation-duration: 1.5s;"></div>
         <div class="raindrop" style="left: 10%;  animation-duration: 1.5s;"></div>
-        <div class="raindrop" style="left: 15%;  animation-duration: 2s;"></div>
+        <div class="raindrop" style="left: 15%;  animation-duration: 1.5s;"></div>
         <div class="raindrop" style="left: 20%;  animation-duration: 1.5s;"></div>
-        <div class="raindrop" style="left: 25%;  animation-duration: 1.8s;"></div>
+        <div class="raindrop" style="left: 25%;  animation-duration: 1.5s;"></div>
         <div class="raindrop" style="left: 30%;  animation-duration: 1.5s;"></div>
-        <div class="raindrop" style="left: 35%;  animation-duration: 2.2s;"></div>
+        <div class="raindrop" style="left: 35%;  animation-duration: 1.5s;"></div>
         <div class="raindrop" style="left: 40%;  animation-duration: 1.5s;"></div>
-        <div class="raindrop" style="left: 45%;  animation-duration: 1.7s;"></div>
+        <div class="raindrop" style="left: 45%;  animation-duration: 1.5s;"></div>
         <div class="raindrop" style="left: 50%;  animation-duration: 1.5s;"></div>
-        <div class="raindrop" style="left: 55%;  animation-duration: 1.9s;"></div>
+        <div class="raindrop" style="left: 55%;  animation-duration: 1.5s;"></div>
         <div class="raindrop" style="left: 60%;  animation-duration: 1.5s;"></div>
-        <div class="raindrop" style="left: 65%;  animation-duration: 2.1s;"></div>
+        <div class="raindrop" style="left: 65%;  animation-duration: 1.5s;"></div>
         <div class="raindrop" style="left: 70%;  animation-duration: 1.5s;"></div>
-        <div class="raindrop" style="left: 75%;  animation-duration: 1.6s;"></div>
+        <div class="raindrop" style="left: 75%;  animation-duration: 1.5s;"></div>
         <div class="raindrop" style="left: 80%;  animation-duration: 1.5s;"></div>
-        <div class="raindrop" style="left: 85%;  animation-duration: 1.8s;"></div>
+        <div class="raindrop" style="left: 85%;  animation-duration: 1.5s;"></div>
         <div class="raindrop" style="left: 90%;  animation-duration: 1.5s;"></div>
-        <div class="raindrop" style="left: 95%;  animation-duration: 2s;"></div>
+        <div class="raindrop" style="left: 95%;  animation-duration: 1.5s;"></div>
+        <!-- Add more raindrops as needed -->
+
     </div>
     <div id="outline"></div>
-    <div id="converter">
-        <table cellspacing="20px">
-            <tr>
-                <td colspan="2">
-                    <h1>Temperature Converter</h1>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="">Degree</label>
-                </td>
-                <td>
-                    <label for="">Convert To</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="number" id="temperature" placeholder="Enter temperature">
-                </td>
-                <td>
-                    <select id="unit">
-                        <option value="celsius">Celsius</option>
-                        <option value="fahrenheit">Fahrenheit</option>
-                        <option value="kelvin">Kelvin</option>
-                    </select>
-                </td>
-            </tr>
-            <tr><td><br></td></tr>
-            <tr>
-                <td colspan="2">
-                    <button onclick="convertTemperature()">Convert</button>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div id="result"></div>
-                </td>
-            </tr>
+    <div id="converter" class="container">
+        <table class="table" cellspacing="20px">
+            <thead>
+                <tr>
+                    <th colspan="2"><h1>Temperature Converter</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label for="temperature">Degree</label></td>
+                    <td><label for="unit">Convert To</label></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="temperature" class="form-control" placeholder="Enter temperature"></td>
+                    <td>
+                        <select id="unit" class="form-control">
+                            <option value="celsius">Celsius</option>
+                            <option value="fahrenheit">Fahrenheit</option>
+                            <option value="kelvin">Kelvin</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><td><br></td></tr>
+                <tr>
+                    <td colspan="2"><button class="btn btn-primary" onclick="convertTemperature()">Convert</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="result"></div></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
-        function convertTemperature() {
+                function convertTemperature() {
             const temperatureInput = document.getElementById("temperature");
             const unitSelect = document.getElementById("unit");
             const resultDisplay = document.getElementById("result");
